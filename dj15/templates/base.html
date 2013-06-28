@@ -14,11 +14,15 @@
         <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
         {% endblock %}
 
+        {% block default_css_overrides %}
         <style type="text/css">
             input[type="text"] { 
                 height:30px;
+                float:left;
             }
+            .errorlist { float:right;color:red;font-size:12px;}
         </style>
+        {% endblock %}
   </head>
     <body>
 

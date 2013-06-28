@@ -1,12 +1,12 @@
 # Create your views here.
-from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
 from models import Gallery, Category
-from forms import GalleryForm
+from forms import GalleryForm, CategoryForm
+
 
 class AboutView(TemplateView):
     """ About Page View """
     template_name = "about.html"
-
 
 class GalleryView(ListView):
     """ Gallery List Page View """
@@ -15,6 +15,14 @@ class GalleryView(ListView):
 class CreateGallery(CreateView):
     """ Create Gallery page view """
     model = Gallery
+
+class UpdateGallery(UpdateView):
+    """ Update view """
+    form_class = GalleryForm
+    def post(request, *args, **kwargs):
+        print request
+        print args
+        print kwargs
 
 class GalleryDetailView(DetailView):
     """ Gallery Detail Page View """
@@ -33,6 +41,13 @@ class CategoryView(ListView):
 class CreateCategory(CreateView):
     """ Create Category page view """
     model = Category
+
+class UpdateCategory(UpdateView):
+    """ Update category view """
+    form_class = CategoryForm
+    def post(request, *args, **kwargs):
+        print request
+        print args
 
 class CategoryDetailView(DetailView):
     """ Category Detail Page View """
