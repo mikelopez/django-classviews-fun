@@ -1,18 +1,20 @@
 # Create your views here.
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from models import Gallery, Category
+from forms import GalleryForm
 
 class AboutView(TemplateView):
     """ About Page View """
     template_name = "about.html"
 
+
 class GalleryView(ListView):
     """ Gallery List Page View """
     model = Gallery
 
-class CategoryView(ListView):
-    """ Category List Page view """
-    model = Category
+class CreateGallery(CreateView):
+    """ Create Gallery page view """
+    model = Gallery
 
 class GalleryDetailView(DetailView):
     """ Gallery Detail Page View """
@@ -23,9 +25,19 @@ class GalleryDetailView(DetailView):
         # anything after here
         return object
 
+
+class CategoryView(ListView):
+    """ Category List Page view """
+    model = Category
+
+class CreateCategory(CreateView):
+    """ Create Category page view """
+    model = Category
+
 class CategoryDetailView(DetailView):
     """ Category Detail Page View """
     queryset = Category.objects.all()
+
 
 
 

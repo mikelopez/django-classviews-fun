@@ -8,5 +8,5 @@ class GalleryForm(forms.Form):
 
 class CategoryForm(forms.Form):
     """ Forms for Category model """
-    name = models.CharField()
-    description = models.CharField(widget=forms.Textarea)
+    name = forms.CharField()
+    description = forms.CharField(widget=forms.Textarea)
