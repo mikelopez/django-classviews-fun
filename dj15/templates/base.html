@@ -26,9 +26,13 @@
         <h1>
             {% block heading %}hello man {% endblock %}
         </h1> <hr />
+        
+        {% block error_notification %}{% endblock %}
 
-        {% block add_category_form %} {% endblock %}
-        {% block add_gallery_form %} {% endblock %}
+        <form action="{% block form_submit_to %}#{% endblock %}" method="POST"> {% csrf_token %}
+            {% block add_category_form %} {% endblock %}
+            {% block add_gallery_form %} {% endblock %}
+        </form>
 
     </div>
   </body>

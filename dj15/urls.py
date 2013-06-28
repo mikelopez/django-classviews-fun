@@ -21,11 +21,11 @@ urlpatterns = patterns('',
     url(r'^about/', AboutView.as_view(), name="about-view"),
 
 
-    url(r'^gallery/add', CreateGallery.as_view(), name="galleries-view"),
+    url(r'^gallery/add', CreateGallery.as_view(), name="galleries-add"),
     url(r'^gallery/', GalleryView.as_view(), name="galleries-view"),
     url(r'^galleries/(?P<pk>\d+)/$', GalleryDetailView.as_view(), name="gallery-detail"),
     
-    url(r'^categories/add', CreateCategory.as_view(), name="categories-view"),
+    url(r'^categories/add', CreateCategory.as_view(), name="categories-add"),
     url(r'^categories/', CategoryView.as_view(), name="categories-view"),
     url(r'^categories/(?P<pk>\d+)/$', CategoryDetailView.as_view(), name="category-detail"),
 
