@@ -1,4 +1,6 @@
 # Django settings for dj15 project.
+from os.path import realpath, dirname
+PROJECT_ROOTDIR = realpath(dirname(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
