@@ -1,10 +1,12 @@
 from django.conf.urls import patterns, include, url
+from django.conf import settings
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from web.views import AboutView, GalleryView, GalleryDetailView, \
         CategoryView, CategoryDetailView, CreateGallery, CreateCategory
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
+PROJECT_ROOTDIR = getattr(settings, 'PROJECT_ROOTDIR', '')
 
 urlpatterns = patterns('',
     # Examples:
@@ -26,5 +28,9 @@ urlpatterns = patterns('',
     url(r'^categories/add', CreateCategory.as_view(), name="categories-view"),
     url(r'^categories/', CategoryView.as_view(), name="categories-view"),
     url(r'^categories/(?P<pk>\d+)/$', CategoryDetailView.as_view(), name="category-detail"),
+
+
+    #(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root':'%s/static/' % (PROJECT_ROOTDIR), 'show_indexes': True}),
+
 
 )

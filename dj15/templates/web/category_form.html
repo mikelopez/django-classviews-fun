@@ -1,14 +1,10 @@
-<html>
-  <head>
-    <title>Gallery List</title>
-  </head>
-  <body>
-    <h1>Galleries</h1><hr />
-    <ul>
-    {% for i in object_list %}
-    <li /> {{ i.name }} </li>
-    {% endfor %}
-    </ul>
+{% extends "base.html" %}
 
-  </body>
-</html>
+{% block heading %}Add a Category{% endblock %}
+
+{% block add_category_form %}
+    <table>
+      {{form.as_table}}
+    </table>
+    <input type="submit" class="btn btn-success" value="Add Category" />
+ {% endblock %}
