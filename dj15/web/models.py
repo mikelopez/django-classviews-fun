@@ -5,7 +5,8 @@ class Gallery(models.Model):
     name = models.CharField(max_length=30)
     category = models.ForeignKey("Category")
     gallery_location = models.TextField(blank=True, null=True)
-
+    def get_absolute_url(self):
+        return reverse('gallery-detail', kwargs={'pk': self.pk})
 
 class Category(models.Model):
     """ Category Galery table """
@@ -13,6 +14,8 @@ class Category(models.Model):
     description = models.TextField(blank=True, null=True)
     def get_galleries(self):
         return self.gallery_set.select_related()
+    def get_absolute_url(self):
+        return reverse('category-detail', kwargs={'pk': self.pk})
 
 
 
