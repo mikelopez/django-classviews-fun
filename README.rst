@@ -24,30 +24,3 @@ TODO:
 * make the nav model links dynamic
 
 
-
-
-
-% load staticfiles %}
-      <title>{% block title %}Title{% endblock %}</title>
-        {% block load_bootstrap_css %}
-        <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet" />
-        {% endblock %} 
-        {% block load_jquery %}
-        {% endblock %}
-        {% block load_bootstrap_js %}
-        <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
-        {% endblock %}
-        {% block default_css_overrides %}
-        {% endblock %}
-                <a class="brand" href="#">{% block project_name %}Project Name{% endblock %}</a>
-                    <li><a href="{% url 'galleries-view' %}">Galleries</a></li>
-                    <li><a href="{% url 'categories-view' %}">Categories</a></li>
-                {% block heading %}hello man {% endblock %}
-            <input type="button" class="btn btn-info pull-right" value="{% action_button_text %}" 
-                onclick="window.location='{% block action_button_href %}';"/>
-            {% block error_notification %}{% endblock %}
-            <form action="{% block form_submit_to %}#{% endblock %}" method="POST"> {% csrf_token %}
-                {% block add_category_form %} {% endblock %}
-                {% block add_gallery_form %} {% endblock %}
-            {% block table_list %}
-            {% endblock %}
