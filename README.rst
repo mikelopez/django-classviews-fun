@@ -19,7 +19,9 @@ Below are the base template block variables to replace any defaults with custom 
 * error_notification = replace this with any error notification html text
 
 
-TODO: 
+TODO
+-----
+
 * make the model attribute of the classes dynamic
 * make the nav model links dynamic
 
