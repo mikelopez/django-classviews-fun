@@ -1,5 +1,6 @@
 # Create your views here.
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
+from django.shortcuts import render
 from models import Gallery, Category
 from forms import GalleryForm, CategoryForm
 
@@ -7,7 +8,6 @@ from forms import GalleryForm, CategoryForm
 class AboutView(TemplateView):
     """ About Page View """
     template_name = "about.html"
-
 
 class GalleryView(ListView):
     """ Gallery List Page View """
@@ -19,19 +19,13 @@ class CreateGallery(CreateView):
 
 class UpdateGallery(UpdateView):
     """ Update view """
-    form_class = GalleryForm
-    def post(request, *args, **kwargs):
-        print request
-        print args
-        print kwargs
-
+    model = Gallery
+    
 class GalleryDetailView(DetailView):
     """ Gallery Detail Page View """
     queryset = Gallery.objects.all()
-    def get_object(self):
-        # do anything anytime an object is accessed
-        object = super(GalleryDetailView, self).get_object()
-        # anything after here
+    def get_object(self, **kwargs):
+        object = super(GalleryDetailView, self).get_object(**kwargs)
         return object
 
 
@@ -46,15 +40,14 @@ class CreateCategory(CreateView):
 
 class UpdateCategory(UpdateView):
     """ Update category view """
-    form_class = CategoryForm
-    def post(request, *args, **kwargs):
-        print request
-        print args
+    model = Gallery
 
 class CategoryDetailView(DetailView):
     """ Category Detail Page View """
     queryset = Category.objects.all()
-
+    def get_object(self, **kwargs):
+        object = super(GalleryDetailView, self).get_object(**kwargs)
+        return object
 
 
 

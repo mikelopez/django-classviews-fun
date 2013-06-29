@@ -1,14 +1,22 @@
-<html>
-  <head>
-    <title>Category List</title>
-  </head>
-  <body>
-    <h1>Categories</h1><hr />
-    <ul>
-    {% for i in object_list %}
-    <li /> {{ i.name }} </li>
-    {% endfor %}
-    </ul>
 
-  </body>
-</html>
+{% extends "base.html" %}
+
+
+{% block heading %}Categories{% endblock %}
+{% block action_button_text %}New Category{% endblock %}
+{% block action_button_href %}{% url 'categories-add' %}{% endblock %}
+
+
+{% block table_list %}
+
+  <table>
+    <tr><td>Name</td><td>Description</td></tr>
+    {% for i in object_list %}
+    <tr>
+      <td>{{ i.name }} </td>
+      <td>{{ i.description }}</td>
+    </tr>
+    {% endfor %}
+   </table>
+
+{% endblock %}

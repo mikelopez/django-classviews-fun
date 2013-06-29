@@ -1,14 +1,21 @@
-<html>
-  <head>
-    <title>Gallery List</title>
-  </head>
-  <body>
-    <h1>Galleries</h1><hr />
-    <ul>
-    {% for i in object_list %}
-    <li /> {{ i.name }} </li>
-    {% endfor %}
-    </ul>
+{% extends "base.html" %}
 
-  </body>
-</html>
+{% block heading %}Galleries{% endblock %}
+{% block action_button_text %}New Gallery{% endblock %}
+{% block action_button_href %}{% url 'galleries-add' %}{% endblock %}
+
+
+{% block table_list %}
+
+  <table>
+    <tr><td>Name</td><td>Category</td><td>Description</td></tr>
+    {% for i in object_list %}
+    <tr>
+      <td>{{ i.name }} </td>
+      <td>{{ i.category }} </td>
+      <td>{{ i.description }}</td>
+    </tr>
+    {% endfor %}
+   </table>
+
+ {% endblock %}
