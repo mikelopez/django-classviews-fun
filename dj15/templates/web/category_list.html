@@ -20,3 +20,8 @@
    </table>
 
 {% endblock %}
+
+{% block action_button %}
+    <input type="button" class="btn btn-info pull-right" value="New Category" 
+                onclick="window.location='{% url 'categories-add' %}';"/>
+{% endblock %}

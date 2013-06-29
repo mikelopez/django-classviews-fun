@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 
 {% block heading %}Galleries{% endblock %}
-{% block action_button_text %}New Gallery{% endblock %}
-{% block action_button_href %}{% url 'galleries-add' %}{% endblock %}
-
 
 {% block table_list %}
 
@@ -19,3 +16,9 @@
    </table>
 
  {% endblock %}
+
+
+ {% block action_button %}
+    <input type="button" class="btn btn-info pull-right" value="Add Gallery" 
+                onclick="window.location='{% url 'galleries-add' %}';"/>
+{% endblock %}
