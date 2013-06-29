@@ -8,6 +8,7 @@ class AboutView(TemplateView):
     """ About Page View """
     template_name = "about.html"
 
+
 class GalleryView(ListView):
     """ Gallery List Page View """
     model = Gallery
@@ -32,6 +33,7 @@ class GalleryDetailView(DetailView):
         object = super(GalleryDetailView, self).get_object()
         # anything after here
         return object
+
 
 
 class CategoryView(ListView):
