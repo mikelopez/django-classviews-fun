@@ -13,6 +13,10 @@ class Category(models.Model):
     """ Category Galery table """
     name = models.CharField(max_length=30)
     description = models.TextField(blank=True, null=True)
+    def __str__(self):
+        return str(self.name)
+    def __unicode__(self):
+        return unicode(self.name)
     def get_galleries(self):
         return self.gallery_set.select_related()
     def get_absolute_url(self):

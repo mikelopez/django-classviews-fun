@@ -4,6 +4,7 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from web.views import AboutView, GalleryView, GalleryDetailView, \
         CategoryView, CategoryDetailView, CreateGallery, CreateCategory, \
         UpdateGallery, UpdateCategory
+        
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
